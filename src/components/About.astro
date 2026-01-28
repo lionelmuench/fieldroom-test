@@ -1,0 +1,91 @@
+---
+// About.astro - What we do section with notebook-style annotations
+---
+
+<section class="about relative py-32 px-6" id="about">
+  <div class="max-w-6xl mx-auto">
+    <!-- Section header with sketch annotation -->
+    <div class="relative mb-20" data-animate>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold text-ink-dark">
+        What we <span class="font-sketch text-5xl md:text-6xl lg:text-7xl text-pencil">do</span>
+      </h2>
+    </div>
+    
+    <!-- Main value prop -->
+    <div class="grid md:grid-cols-2 gap-16 items-start mb-24">
+      <div class="space-y-6" data-animate>
+        <p class="text-xl md:text-2xl leading-relaxed text-ink">
+          We create <span class="font-semibold">beautiful, functional static websites</span> for individuals and small businesses.
+        </p>
+        <p class="text-lg text-ink-light leading-relaxed">
+          Lightning fast. Fully responsive. Secure. And completely unique to you—no templates, no cookie-cutter designs.
+        </p>
+      </div>
+      
+      <!-- Notebook-style feature list -->
+      <div class="relative" data-animate>
+        <!-- Paper background -->
+        <div class="bg-paper-light border-l-4 border-pencil p-8 rounded-r-lg shadow-sm">
+          <ul class="space-y-5 font-sketch text-xl">
+            <li class="flex items-center gap-4">
+              <span class="text-2xl">⚡</span>
+              <span>Lightning fast loading</span>
+              <svg class="w-16 h-4 ml-auto text-pencil" viewBox="0 0 60 16" fill="none">
+                <path d="M0 8 C20 4 40 12 60 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </li>
+            <li class="flex items-center gap-4">
+              <span class="text-2xl">📱</span>
+              <span>Fully responsive</span>
+              <svg class="w-16 h-4 ml-auto text-pencil" viewBox="0 0 60 16" fill="none">
+                <path d="M0 10 C15 6 45 14 60 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </li>
+            <li class="flex items-center gap-4">
+              <span class="text-2xl">🔒</span>
+              <span>Secure & reliable</span>
+              <svg class="w-16 h-4 ml-auto text-pencil" viewBox="0 0 60 16" fill="none">
+                <path d="M0 8 Q30 2 60 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </li>
+            <li class="flex items-center gap-4">
+              <span class="text-2xl">🎨</span>
+              <span>Unique designs</span>
+              <svg class="w-16 h-4 ml-auto text-pencil" viewBox="0 0 60 16" fill="none">
+                <path d="M0 6 C20 12 40 4 60 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </li>
+            <li class="flex items-center gap-4">
+              <span class="text-2xl">📊</span>
+              <span>SEO & analytics included</span>
+              <svg class="w-16 h-4 ml-auto text-pencil" viewBox="0 0 60 16" fill="none">
+                <path d="M0 10 C30 4 30 12 60 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Corner fold effect -->
+        <div class="absolute -top-2 -right-2 w-8 h-8 bg-paper-dark" style="clip-path: polygon(100% 0, 100% 100%, 0 100%);"></div>
+      </div>
+    </div>
+    
+    <!-- Additional services -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="paper-card p-6 rounded-sm hover:translate-y-[-4px] transition-smooth" data-animate>
+        <h3 class="font-semibold text-lg mb-2">Hassle-free hosting</h3>
+        <p class="text-ink-light text-sm">We handle everything. No servers to manage, no technicalities to worry about.</p>
+      </div>
+      
+      <div class="paper-card p-6 rounded-sm hover:translate-y-[-4px] transition-smooth" data-animate>
+        <h3 class="font-semibold text-lg mb-2">SEO optimization</h3>
+        <p class="text-ink-light text-sm">Get found. We optimize every page for search engines from day one.</p>
+      </div>
+      
+      <div class="paper-card p-6 rounded-sm hover:translate-y-[-4px] transition-smooth" data-animate>
+        <h3 class="font-semibold text-lg mb-2">Content management</h3>
+        <p class="text-ink-light text-sm">Need a blog or updates? We can add an easy-to-use CMS for you.</p>
+      </div>
+    </div>
+  </div>
+</section>

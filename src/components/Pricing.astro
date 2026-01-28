@@ -1,0 +1,181 @@
+---
+// Pricing.astro - Two pricing options with sketch-style cards
+---
+
+<section class="pricing relative py-32 px-6 bg-paper-cream" id="pricing">
+  <div class="max-w-5xl mx-auto">
+    <!-- Section header -->
+    <div class="text-center mb-16" data-animate>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-semibold text-ink-dark mb-4">
+        Simple <span class="font-sketch text-5xl md:text-6xl lg:text-7xl text-pencil">pricing</span>
+      </h2>
+      <p class="text-lg text-ink-light max-w-xl mx-auto">
+        Upfront pricing, no surprises. Just one possible extra: if you need a domain, that's on you.
+      </p>
+    </div>
+    
+    <!-- Pricing cards -->
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      
+      <!-- Lump Sum Option -->
+      <div class="relative group" data-animate>
+        <div class="sketch-border sketch-border-hover bg-paper-light p-8 md:p-10 rounded-sm transition-smooth">
+          <!-- Badge -->
+          <div class="inline-block mb-6 px-3 py-1 bg-highlight/60 rounded-full">
+            <span class="font-sketch text-sm">Own it outright</span>
+          </div>
+          
+          <h3 class="text-2xl font-semibold mb-2 text-ink-dark">Lump Sum</h3>
+          
+          <!-- Price -->
+          <div class="mb-6">
+            <span class="text-5xl md:text-6xl font-semibold text-ink-dark">$1.2k</span>
+            <span class="text-ink-light text-lg ml-2">one-time</span>
+          </div>
+          
+          <div class="flex items-center gap-2 mb-8 text-ink-light">
+            <span class="text-lg">+</span>
+            <span class="text-2xl font-semibold text-ink">$35</span>
+            <span>/month hosting</span>
+          </div>
+          
+          <!-- Features -->
+          <ul class="space-y-4 mb-10">
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-pencil flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Custom designed website</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-pencil flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>SEO optimization included</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-pencil flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Analytics dashboard</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-pencil flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Hassle-free managed hosting</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-pencil flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>You own the code</span>
+            </li>
+          </ul>
+          
+          <p class="text-sm text-ink-light italic mb-6 font-sketch text-lg">
+            "Perfect for: Ready to invest and own it"
+          </p>
+          
+          <a href="#contact" class="btn-sketch w-full justify-center">Get started</a>
+        </div>
+        
+        <!-- Decorative doodle -->
+        <svg class="absolute -top-6 -right-6 w-12 h-12 text-pencil opacity-50 hidden md:block" viewBox="0 0 50 50" fill="none">
+          <path d="M25 5 L30 20 L45 25 L30 30 L25 45 L20 30 L5 25 L20 20 Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      
+      <!-- Subscription Option -->
+      <div class="relative group" data-animate>
+        <div class="sketch-border sketch-border-hover bg-paper-light p-8 md:p-10 rounded-sm transition-smooth border-2 border-sketch-blue">
+          <!-- Badge -->
+          <div class="inline-block mb-6 px-3 py-1 bg-pencil/30 rounded-full">
+            <span class="font-sketch text-sm">Most flexible</span>
+          </div>
+          
+          <h3 class="text-2xl font-semibold mb-2 text-ink-dark">Subscription</h3>
+          
+          <!-- Price -->
+          <div class="mb-6">
+            <span class="text-5xl md:text-6xl font-semibold text-ink-dark">$150</span>
+            <span class="text-ink-light text-lg ml-2">/month</span>
+          </div>
+          
+          <div class="flex items-center gap-2 mb-8 text-ink-light">
+            <span class="text-lg">Everything included</span>
+          </div>
+          
+          <!-- Features -->
+          <ul class="space-y-4 mb-10">
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-sketch-blue flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Custom designed website</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-sketch-blue flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>SEO optimization included</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-sketch-blue flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Analytics dashboard</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-sketch-blue flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Hosting & maintenance</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-sketch-blue flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="font-semibold">Unlimited small edits</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-sketch-blue flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="font-semibold">Cancel anytime</span>
+            </li>
+          </ul>
+          
+          <p class="text-sm text-ink-light italic mb-6 font-sketch text-lg">
+            "Perfect for: Flexibility first"
+          </p>
+          
+          <a href="#contact" class="btn-sketch btn-primary w-full justify-center">Get started</a>
+        </div>
+        
+        <!-- Popular badge -->
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-sketch-blue text-white text-sm font-semibold rounded-full shadow-sm">
+          Popular choice
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Add-ons callout -->
+    <div class="mt-16 max-w-2xl mx-auto" data-animate>
+      <div class="sketch-border bg-paper-light p-8 md:p-10 rounded-sm text-center">
+        <h3 class="text-2xl md:text-3xl font-semibold text-ink-dark mb-4">
+          Need <span class="font-sketch text-3xl md:text-4xl text-pencil">more</span>?
+        </h3>
+        <p class="text-lg text-ink-light mb-6 leading-relaxed">
+          Every project is different. We can add things like content management, contact forms, 
+          image galleries, newsletter signups, booking systems, and more. Let's chat about what 
+          you need—pricing depends on the scope.
+        </p>
+        <a href="#contact" class="btn-sketch inline-flex">
+          Let's talk about it
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
