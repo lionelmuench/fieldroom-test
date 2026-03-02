@@ -50,6 +50,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <script>
+    // Force page to always load at the top to preserve the hero animation experience
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
     // Defining optical scale adjustments for different fonts to keep them visually balanced
     const fonts = [
       { family: '"Helvetica Neue", sans-serif', weight: '700', style: 'normal', scale: 1 },
