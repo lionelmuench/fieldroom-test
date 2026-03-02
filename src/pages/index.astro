@@ -1,0 +1,253 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="INSITE | Web Design">
+  
+  <section id="hero" class="relative min-h-[calc(100vh-100px)] w-full flex flex-col items-center justify-center overflow-hidden bg-white py-20 pb-32">
+    
+    <!-- Initial White Overlay (Fades out after 1.5s) -->
+    <div id="initial-overlay" class="fixed inset-0 w-screen h-screen bg-white z-[50] opacity-100 transition-opacity duration-[1500ms] pointer-events-none"></div>
+
+    <!-- Cool moving fluid background -->
+    <div id="fluid-bg" class="absolute inset-0 z-10 overflow-hidden pointer-events-none opacity-50 mix-blend-multiply">
+      <div class="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] rounded-full bg-white blur-[100px] animate-blob"></div>
+      <div class="absolute top-[40%] -right-[20%] w-[60vw] h-[60vw] rounded-full bg-[#c0c0c0] blur-[120px] animate-blob-reverse"></div>
+      <div class="absolute -bottom-[20%] left-[20%] w-[80vw] h-[80vw] rounded-full bg-[#f0f0f0] blur-[100px] animate-blob-slow"></div>
+    </div>
+    
+    <!-- Massive Logo Centered (Stays Above Overlay via z-[60]) -->
+    <div class="w-full flex items-center justify-center relative z-[60] mb-8 md:mb-12 h-[26vw] sm:h-[22vw] md:h-[18rem] pointer-events-none">
+      <h1 id="hero-logo" class="text-[26vw] sm:text-[22vw] md:text-[16rem] leading-none tracking-tighter text-black select-none pointer-events-auto origin-center">
+        insite
+      </h1>
+    </div>
+
+    <!-- Hidden font preloader to prevent hesitation/FOUT -->
+    <div aria-hidden="true" class="absolute pointer-events-none opacity-0 select-none overflow-hidden w-0 h-0">
+      <span style="font-family: 'Helvetica Neue', sans-serif; font-weight: 700;">insite</span>
+      <span style="font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic;">insite</span>
+      <span style="font-family: 'Space Mono', monospace; font-weight: 400;">insite</span>
+      <span style="font-family: Georgia, serif; font-weight: 400; font-style: italic;">insite</span>
+      <span style="font-family: 'Arial Black', sans-serif; font-weight: 900;">insite</span>
+      <span style="font-family: 'Courier New', monospace; font-weight: 700;">insite</span>
+      <span style="font-family: Impact, sans-serif; font-weight: 400;">insite</span>
+      <span style="font-family: 'Times New Roman', serif; font-weight: 400; font-style: italic;">insite</span>
+    </div>
+
+    <!-- Direct, non-jargon copy (Under overlay via z-20) -->
+    <p class="max-w-2xl font-display text-lg sm:text-xl md:text-2xl leading-snug uppercase tracking-tight text-black/80 font-medium text-center relative z-20 px-4 md:px-0">
+      We're two college students who make really good websites. We work with nonprofits, local businesses, and creative projects to build things that stand out.
+    </p>
+    
+    <!-- Bottom Scroll down indicator (Under overlay via z-20) -->
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20 opacity-40 hover:opacity-100 transition-opacity duration-300">
+        <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-black">Scroll</span>
+        <svg width="12" height="24" viewBox="0 0 12 24" fill="none">
+            <path d="M6 0v23m0 0l-5-5m5 5l5-5" stroke="black" stroke-width="1.5"/>
+        </svg>
+    </div>
+  </section>
+
+  <script>
+    // Defining optical scale adjustments for different fonts to keep them visually balanced
+    const fonts = [
+      { family: '"Helvetica Neue", sans-serif', weight: '700', style: 'normal', scale: 1 },
+      { family: '"Playfair Display", serif', weight: '900', style: 'italic', scale: 1.15 },
+      { family: '"Space Mono", monospace', weight: '400', style: 'normal', scale: 0.82 },
+      { family: 'Georgia, serif', weight: '400', style: 'italic', scale: 1.1 },
+      { family: '"Arial Black", sans-serif', weight: '900', style: 'normal', scale: 0.88 },
+      { family: '"Courier New", monospace', weight: '700', style: 'normal', scale: 0.82 },
+      { family: 'Impact, sans-serif', weight: '400', style: 'normal', scale: 1.05 },
+      { family: '"Times New Roman", serif', weight: '400', style: 'italic', scale: 1.18 }
+    ];
+    
+    const logo = document.getElementById('hero-logo');
+    const overlay = document.getElementById('initial-overlay');
+    
+    if (logo) {
+      let currentFont = 0;
+      
+      // Font swapping interval - snapping instantly without CSS transitions
+      setInterval(() => {
+        currentFont = (currentFont + 1) % fonts.length;
+        const f = fonts[currentFont];
+        logo.style.fontFamily = f.family;
+        logo.style.fontWeight = f.weight;
+        logo.style.fontStyle = f.style;
+        logo.style.transform = `scale(${f.scale})`;
+      }, 300);
+
+      // Fade out the masking layer after 1.5 seconds to reveal the rest
+      setTimeout(() => {
+        if (overlay) {
+          overlay.classList.remove('opacity-100');
+          overlay.classList.add('opacity-0');
+        }
+      }, 1500);
+    }
+  </script>
+
+  <!-- Marquee Anchor -->
+  <div class="w-full overflow-hidden border-b-2 border-black bg-black text-white py-3 relative z-20 flex group" style="--gap: 2rem;">
+    <div class="animate-marquee whitespace-nowrap font-mono text-xs md:text-sm uppercase tracking-widest flex items-center shrink-0 pr-[var(--gap)] group-hover:text-black/50 transition-colors">
+      <span class="mx-4">+++</span>
+      <span>Web Design</span>
+      <span class="mx-4">+++</span>
+      <span>Development</span>
+      <span class="mx-4">+++</span>
+      <span>Personal Vision</span>
+      <span class="mx-4">+++</span>
+      <span>Honest Labor</span>
+      <span class="mx-4">+++</span>
+      <span>No Bloat</span>
+      <span class="mx-4">+++</span>
+      <span>Built in NY</span>
+    </div>
+    <!-- Duplicate for seamless scrolling -->
+    <div class="animate-marquee whitespace-nowrap font-mono text-xs md:text-sm uppercase tracking-widest flex items-center shrink-0 pr-[var(--gap)] group-hover:text-black/50 transition-colors" aria-hidden="true">
+      <span class="mx-4">+++</span>
+      <span>Web Design</span>
+      <span class="mx-4">+++</span>
+      <span>Development</span>
+      <span class="mx-4">+++</span>
+      <span>Personal Vision</span>
+      <span class="mx-4">+++</span>
+      <span>Honest Labor</span>
+      <span class="mx-4">+++</span>
+      <span>No Bloat</span>
+      <span class="mx-4">+++</span>
+      <span>Built in NY</span>
+    </div>
+    <!-- Triple redundancy for arbitrary widths -->
+    <div class="animate-marquee whitespace-nowrap font-mono text-xs md:text-sm uppercase tracking-widest flex items-center shrink-0 pr-[var(--gap)] group-hover:text-black/50 transition-colors" aria-hidden="true">
+      <span class="mx-4">+++</span>
+      <span>Web Design</span>
+      <span class="mx-4">+++</span>
+      <span>Development</span>
+      <span class="mx-4">+++</span>
+      <span>Personal Vision</span>
+      <span class="mx-4">+++</span>
+      <span>Honest Labor</span>
+      <span class="mx-4">+++</span>
+      <span>No Bloat</span>
+      <span class="mx-4">+++</span>
+      <span>Built in NY</span>
+    </div>
+  </div>
+
+  <section id="about" class="py-16 md:py-24 px-4 md:px-8 border-b-2 border-black bg-white">
+    <div class="max-w-6xl mx-auto flex flex-col gap-16">
+      
+      <div class="flex flex-col md:flex-row gap-8 md:gap-16 items-start border-2 border-black p-6 md:p-12 hover:bg-black hover:text-white transition-colors duration-500 group">
+        <div class="font-mono text-xs uppercase tracking-widest md:w-1/5 shrink-0 pt-2 flex items-center gap-2">
+            <span class="inline-block w-4 h-4 bg-black group-hover:bg-white rounded-full"></span>
+            (Who we are)
+        </div>
+        <div class="font-mono text-sm md:text-base leading-relaxed tracking-tight">
+          <p class="mb-6 border-b-2 border-black/20 pb-6">
+            Hi! We're Drew and Lionel, two college students from Hastings-on-Hudson, NY. 
+          </p>
+          <p class="opacity-80 group-hover:opacity-100 transition-opacity">
+            Now knee-deep in a physics degree (Drew) and Computer Science (Lionel), we're combining our deep technical skills with the honest, straightforward work ethic we learned from the tradespeople in our hometown.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-8 md:gap-16 items-start border-2 border-black p-6 md:p-12 bg-gray-50">
+        <div class="font-mono text-xs uppercase tracking-widest md:w-1/5 shrink-0 pt-2 flex items-center gap-2">
+            <span class="inline-block w-4 h-4 border-2 border-black"></span>
+            (The Mission)
+        </div>
+        <div class="font-mono text-sm md:text-base leading-relaxed max-w-2xl text-black/80">
+          <p>
+            We've seen how organizations—from local startups to national nonprofits, magazines, and community chapters—often struggle online, displaced by entities with million-dollar marketing budgets.
+          </p>
+          <p class="mt-6 border-l-4 pl-4 border-black text-black font-semibold">
+            That's why we build precise, high-performance websites. We remove the corporate bloat to deliver platforms that help ambitious visions prosper in the digital age.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="services" class="py-16 md:py-24 px-4 md:px-8 bg-black text-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b-2 border-white/20 pb-8">
+        <h2 class="text-4xl md:text-6xl font-display font-medium tracking-tighter uppercase">(Services)</h2>
+        <p class="font-mono text-xs uppercase tracking-widest mt-4 md:mt-0 opacity-70 border border-white/20 px-4 py-2 rounded-full">Capabilities</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-sm">
+        
+        <!-- Card 1 -->
+        <div class="border-2 border-white/20 p-8 hover:border-white transition-colors duration-300 flex flex-col h-full group">
+            <div class="text-xs opacity-50 mb-8 flex justify-between">
+                <span>01</span>
+                <span>[ Architecture ]</span>
+            </div>
+            <h3 class="text-2xl font-display uppercase tracking-tight mb-4 group-hover:italic">Bespoke Sites</h3>
+            <p class="opacity-70 flex-grow">
+                Fast, responsive, and completely custom web presences built from the ground up for total performance.
+            </p>
+            <div class="h-1 w-0 bg-white group-hover:w-full transition-all duration-500 mt-8"></div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="border-2 border-white/20 p-8 hover:border-white transition-colors duration-300 flex flex-col h-full group">
+            <div class="text-xs opacity-50 mb-8 flex justify-between">
+                <span>02</span>
+                <span>[ Evolution ]</span>
+            </div>
+            <h3 class="text-2xl font-display uppercase tracking-tight mb-4 group-hover:italic">Redesigns</h3>
+            <p class="opacity-70 flex-grow">
+                Modernizing existing digital footprints to meet new-gen aesthetic and technical standards.
+            </p>
+            <div class="h-1 w-0 bg-white group-hover:w-full transition-all duration-500 mt-8"></div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="border-2 border-white/20 p-8 hover:border-white transition-colors duration-300 flex flex-col h-full group">
+            <div class="text-xs opacity-50 mb-8 flex justify-between">
+                <span>03</span>
+                <span>[ Fidelity ]</span>
+            </div>
+            <h3 class="text-2xl font-display uppercase tracking-tight mb-4 group-hover:italic">Personal Vision</h3>
+            <p class="opacity-70 flex-grow">
+                We work directly with your foundational ideas, iterating relentlessly until you are completely satisfied.
+            </p>
+            <div class="h-1 w-0 bg-white group-hover:w-full transition-all duration-500 mt-8"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-24 px-4 md:px-8 border-t-2 border-black flex items-center justify-center text-center bg-[#f4f4f4]">
+    <div class="border-2 border-black p-12 md:p-24 relative overflow-hidden group w-full max-w-4xl bg-white">
+      <div class="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-in-out"></div>
+      
+      <h2 class="text-4xl md:text-7xl font-display font-medium uppercase tracking-tighter relative z-10 group-hover:text-white transition-colors duration-500 delay-100">
+        <a href="mailto:hello@insite.com" class="hover:italic inline-block">Execute your vision.</a>
+      </h2>
+      
+      <div class="mt-8 flex justify-center gap-4 relative z-10 group-hover:text-white transition-colors duration-500 delay-200">
+          <a href="mailto:hello@insite.com" class="font-mono text-sm tracking-widest border-b border-black group-hover:border-white pb-1">hello@insite.com</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+/* Add the marquee animation to the scoped styles so it works correctly */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% - var(--gap))); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+</style>

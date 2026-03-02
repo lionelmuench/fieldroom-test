@@ -1,0 +1,54 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "INSITE - Custom web design and development by Drew and Lionel in Hastings-on-Hudson." } = Astro.props;
+const siteUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
+const isProd = import.meta.env.PROD;
+const gaId = import.meta.env.PUBLIC_GA_ID;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+        <!-- SEO -->
+        <link rel="canonical" href={siteUrl} />
+        
+        <!-- Preload Fonts (if needed) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+        <!-- Google Analytics -->
+        {isProd && gaId && (
+            <script type="text/partytown" async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+            <script type="text/partytown" define:vars={{ gaId }}>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', gaId);
+            </script>
+        )}
+	</head>
+	<body class="flex flex-col min-h-screen">
+        <div class="noise-bg"></div>
+        <Header />
+        <main class="flex-grow">
+		    <slot />
+        </main>
+        <Footer />
+	</body>
+</html>
