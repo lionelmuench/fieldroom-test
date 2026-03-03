@@ -3,10 +3,10 @@
 ---
 
 <header class="w-full px-4 md:px-8 py-6 flex justify-between items-center z-40 relative text-black top-0 left-0 border-b-2 border-black">
-  <a href="/" class="text-2xl md:text-3xl font-display font-bold uppercase tracking-tighter hover:opacity-50 transition-opacity duration-300">
+  <a href="/" class="text-2xl md:text-3xl font-display font-bold uppercase tracking-tighter hover:opacity-50 transition-opacity duration-300 relative z-50">
     Insite
   </a>
-  <nav class="hidden md:flex gap-8 text-sm font-mono uppercase tracking-widest">
+  <nav class="hidden md:flex gap-8 text-sm font-mono uppercase tracking-widest relative z-50">
     <a href="/#about" class="relative group overflow-hidden">
       <span class="inline-block transition-transform duration-300 group-hover:-translate-y-full">About</span>
       <span class="absolute inset-0 transition-transform duration-300 translate-y-full group-hover:translate-y-0" aria-hidden="true">About</span>
@@ -22,7 +22,49 @@
   </nav>
   
   <!-- Mobile Menu Toggle (Minimal) -->
-  <button class="md:hidden font-mono uppercase text-sm tracking-widest hover:line-through transition-all duration-300">
+  <button id="mobile-menu-toggle" class="md:hidden font-mono uppercase text-sm tracking-widest hover:line-through transition-all duration-300 relative z-50">
     Menu
   </button>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-white z-40 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+    <nav class="flex flex-col gap-12 text-5xl font-display font-bold uppercase tracking-tighter text-center">
+      <a href="/#about" class="mobile-link hover:opacity-50 transition-opacity">About</a>
+      <a href="/#services" class="mobile-link hover:opacity-50 transition-opacity">Work</a>
+      <a href="/#contact" class="mobile-link hover:opacity-50 transition-opacity">Contact</a>
+    </nav>
+  </div>
 </header>
+
+<script>
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  if (toggleBtn && mobileMenu) {
+    let isOpen = false;
+
+    const toggle = () => {
+      isOpen = !isOpen;
+      if (isOpen) {
+        mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+        mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+        toggleBtn.textContent = 'Close';
+        document.body.style.overflow = 'hidden';
+      } else {
+        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+        toggleBtn.textContent = 'Menu';
+        document.body.style.overflow = '';
+      }
+    };
+
+    toggleBtn.addEventListener('click', toggle);
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (isOpen) toggle();
+      });
+    });
+  }
+</script>

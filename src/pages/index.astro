@@ -9,12 +9,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <!-- Initial White Overlay (Fades out after 1.5s) -->
     <div id="initial-overlay" class="fixed inset-0 w-screen h-screen bg-white z-[50] opacity-100 transition-opacity duration-[1500ms] pointer-events-none"></div>
 
-    <!-- Cool moving fluid background -->
-    <div id="fluid-bg" class="absolute inset-0 z-10 overflow-hidden pointer-events-none opacity-50 mix-blend-multiply">
-      <div class="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] rounded-full bg-white blur-[100px] animate-blob"></div>
-      <div class="absolute top-[40%] -right-[20%] w-[60vw] h-[60vw] rounded-full bg-[#c0c0c0] blur-[120px] animate-blob-reverse"></div>
-      <div class="absolute -bottom-[20%] left-[20%] w-[80vw] h-[80vw] rounded-full bg-[#f0f0f0] blur-[100px] animate-blob-slow"></div>
-    </div>
     
     <!-- Massive Logo Centered (Stays Above Overlay via z-[60]) -->
     <div class="w-full flex items-center justify-center relative z-[60] mb-8 md:mb-12 h-[26vw] sm:h-[22vw] md:h-[18rem] pointer-events-none">
@@ -37,7 +31,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <!-- Direct, non-jargon copy (Under overlay via z-20) -->
     <p class="max-w-2xl font-display text-lg sm:text-xl md:text-2xl leading-snug uppercase tracking-tight text-black/80 font-medium text-center relative z-20 px-4 md:px-0">
-      We're two college students who make really good websites. We work with nonprofits, local businesses, and creative projects to build things that stand out.
+      We're two college students who make really good websites. We work with local businesses and creative projects to build things that stand out.
     </p>
     
     <!-- Bottom Scroll down indicator (Under overlay via z-20) -->
@@ -155,7 +149,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             Hi! We're Drew and Lionel, two college students from Hastings-on-Hudson, NY. 
           </p>
           <p class="opacity-80 group-hover:opacity-100 transition-opacity">
-            Now knee-deep in a physics degree (Drew) and Computer Science (Lionel), we're combining our deep technical skills with the honest, straightforward work ethic we learned from the tradespeople in our hometown.
+            Drew studies physics and Lionel studies computer science. We're combining what we've learned in school with hands-on work building websites for clients.
           </p>
         </div>
       </div>
@@ -167,10 +161,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         <div class="font-mono text-sm md:text-base leading-relaxed max-w-2xl text-black/80">
           <p>
-            We've seen how organizations—from local startups to national nonprofits, magazines, and community chapters—often struggle online, displaced by entities with million-dollar marketing budgets.
+            We've worked with local startups, national nonprofits, magazines, and community organizations (many of them running on shoestring budgets).
           </p>
           <p class="mt-6 border-l-4 pl-4 border-black text-black font-semibold">
-            That's why we build precise, high-performance websites. We remove the corporate bloat to deliver platforms that help ambitious visions prosper in the digital age.
+            That's why we build fast, high-performance websites. We cut out the bloat so you get a platform that actually works, without the price tag of a big agency or the emptiness of a template.
           </p>
         </div>
       </div>
@@ -195,7 +189,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
             <h3 class="text-2xl font-display uppercase tracking-tight mb-4 group-hover:italic">Bespoke Sites</h3>
             <p class="opacity-70 flex-grow">
-                Fast, responsive, and completely custom web presences built from the ground up for total performance.
+                Fast, responsive, and completely custom websites built from the ground up for total performance.
             </p>
             <div class="h-1 w-0 bg-white group-hover:w-full transition-all duration-500 mt-8"></div>
         </div>
@@ -208,7 +202,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
             <h3 class="text-2xl font-display uppercase tracking-tight mb-4 group-hover:italic">Redesigns</h3>
             <p class="opacity-70 flex-grow">
-                Modernizing existing digital footprints to meet new-gen aesthetic and technical standards.
+                Modernizing outdated digital presences while keeping what works and improving what doesn't.
             </p>
             <div class="h-1 w-0 bg-white group-hover:w-full transition-all duration-500 mt-8"></div>
         </div>
@@ -221,7 +215,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
             <h3 class="text-2xl font-display uppercase tracking-tight mb-4 group-hover:italic">Personal Vision</h3>
             <p class="opacity-70 flex-grow">
-                We work directly with your foundational ideas, iterating relentlessly until you are completely satisfied.
+                We work closely with you throughout the process, making sure the final site reflects your vision completely.
             </p>
             <div class="h-1 w-0 bg-white group-hover:w-full transition-all duration-500 mt-8"></div>
         </div>
