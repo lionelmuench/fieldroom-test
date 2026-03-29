@@ -4,44 +4,119 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="INSITE | Web Design">
   
-  <section id="hero" class="relative min-h-[calc(100vh-100px)] w-full flex flex-col items-center justify-center overflow-hidden bg-white py-20 pb-32">
-    
-    <!-- Initial White Overlay (Fades out after 1.5s) -->
-    <div id="initial-overlay" class="fixed inset-0 w-screen h-screen bg-white z-[50] opacity-100 transition-opacity duration-[1500ms] pointer-events-none"></div>
+  <!-- The Scroll Sequence Wrapper -->
+  <div id="scroll-sequence" class="relative h-[200vh] bg-black">
+    <div class="sticky top-0 h-screen w-full overflow-hidden border-b-2 border-black">
+      
+      <!-- THE REALITY SECTION (Background Layer) -->
+      <section id="stats" class="absolute inset-0 w-full h-full flex flex-col items-center justify-center px-4 md:px-8 bg-black text-white pointer-events-auto">
+        <div class="max-w-6xl mx-auto flex flex-col items-center text-center gap-12">
+          <div class="font-mono text-xs uppercase tracking-widest flex items-center justify-center gap-2 text-white/50">
+              <span class="inline-block w-4 h-4 bg-white rounded-full"></span>
+              (The Reality)
+              <span class="inline-block w-4 h-4 bg-white rounded-full"></span>
+          </div>
+          <div class="max-w-5xl flex flex-col gap-8 group">
+            <h3 class="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-display uppercase tracking-tighter leading-[1.05] transition-all duration-300 group-hover:italic text-white">
+              "84% of consumers say a business is more credible if it has a website."
+            </h3>
+            <p class="font-mono text-sm md:text-lg mt-4 text-white/50 uppercase tracking-widest font-semibold">— Verisign</p>
+          </div>
+        </div>
+      </section>
 
-    
-    <!-- Massive Logo Centered (Stays Above Overlay via z-[60]) -->
-    <div id="hero-logo-wrapper" class="w-full flex items-center justify-center relative z-[60] mb-8 md:mb-12 h-[26vw] sm:h-[22vw] md:h-[18rem] pointer-events-none">
-      <h1 id="hero-logo" class="text-[26vw] sm:text-[22vw] md:text-[16rem] leading-none tracking-tighter text-black select-none pointer-events-auto origin-center">
-        insite
-      </h1>
-    </div>
+      <!-- THE HERO SECTION (Foreground Layer, fades out) -->
+      <section id="hero-layer" class="absolute inset-0 w-full h-full flex flex-col items-center justify-end overflow-hidden bg-white origin-top will-change-[opacity]">
+        
+        <div class="flex-grow flex flex-col items-center justify-center w-full relative pt-20">
+          <!-- Initial White Overlay (Fades out after 1.5s) -->
+          <div id="initial-overlay" class="fixed inset-0 w-screen h-screen bg-white z-[50] opacity-100 transition-opacity duration-[1500ms] pointer-events-none"></div>
 
-    <!-- Hidden font preloader to prevent hesitation/FOUT -->
-    <div aria-hidden="true" class="absolute pointer-events-none opacity-0 select-none overflow-hidden w-0 h-0">
-      <span style="font-family: 'Helvetica Neue', sans-serif; font-weight: 700;">insite</span>
-      <span style="font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic;">insite</span>
-      <span style="font-family: 'Space Mono', monospace; font-weight: 400;">insite</span>
-      <span style="font-family: Georgia, serif; font-weight: 400; font-style: italic;">insite</span>
-      <span style="font-family: 'Arial Black', sans-serif; font-weight: 900;">insite</span>
-      <span style="font-family: 'Courier New', monospace; font-weight: 700;">insite</span>
-      <span style="font-family: Impact, sans-serif; font-weight: 400;">insite</span>
-      <span style="font-family: 'Times New Roman', serif; font-weight: 400; font-style: italic;">insite</span>
-    </div>
+          <!-- Massive Logo Centered -->
+          <div id="hero-logo-wrapper" class="w-full flex items-center justify-center relative z-[60] mb-8 md:mb-12 h-[26vw] sm:h-[22vw] md:h-[18rem] pointer-events-none">
+            <h1 id="hero-logo" class="text-[26vw] sm:text-[22vw] md:text-[16rem] leading-none tracking-tighter text-black select-none pointer-events-auto origin-center">
+              insite
+            </h1>
+          </div>
 
-    <!-- Direct, non-jargon copy (Under overlay via z-20) -->
-    <p class="max-w-2xl font-display text-lg sm:text-xl md:text-2xl leading-snug uppercase tracking-tight text-black/80 font-medium text-center relative z-20 px-4 md:px-0">
-      We're two college students who make really good websites. We work with local businesses and creative projects to build things that stand out.
-    </p>
-    
-    <!-- Bottom Scroll down indicator (Under overlay via z-20) -->
-    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20 opacity-40 hover:opacity-100 transition-opacity duration-300">
-        <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-black">Scroll</span>
-        <svg width="12" height="24" viewBox="0 0 12 24" fill="none">
-            <path d="M6 0v23m0 0l-5-5m5 5l5-5" stroke="black" stroke-width="1.5"/>
-        </svg>
+          <!-- Hidden font preloader -->
+          <div aria-hidden="true" class="absolute pointer-events-none opacity-0 select-none overflow-hidden w-0 h-0">
+            <span style="font-family: 'Helvetica Neue', sans-serif; font-weight: 700;">insite</span>
+            <span style="font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic;">insite</span>
+            <span style="font-family: 'Space Mono', monospace; font-weight: 400;">insite</span>
+            <span style="font-family: Georgia, serif; font-weight: 400; font-style: italic;">insite</span>
+            <span style="font-family: 'Arial Black', sans-serif; font-weight: 900;">insite</span>
+            <span style="font-family: 'Courier New', monospace; font-weight: 700;">insite</span>
+            <span style="font-family: Impact, sans-serif; font-weight: 400;">insite</span>
+            <span style="font-family: 'Times New Roman', serif; font-weight: 400; font-style: italic;">insite</span>
+          </div>
+
+          <!-- Direct, non-jargon copy -->
+          <p class="max-w-2xl font-display text-lg sm:text-xl md:text-2xl leading-snug uppercase tracking-tight text-black/80 font-medium text-center relative z-20 px-4 md:px-0">
+            We're two college students who make really good websites. We work with local businesses and creative projects to build things that stand out.
+          </p>
+        </div>
+        
+        <!-- Bottom Scroll down indicator (shifted up above marquee) -->
+        <div class="relative z-20 opacity-40 hover:opacity-100 transition-opacity duration-300 flex flex-col items-center gap-3 mb-10 md:mb-14">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-black">Scroll</span>
+            <svg width="12" height="24" viewBox="0 0 12 24" fill="none">
+                <path d="M6 0v23m0 0l-5-5m5 5l5-5" stroke="black" stroke-width="1.5"/>
+            </svg>
+        </div>
+
+        <!-- Marquee Anchor Moved into Hero Bottom -->
+        <div class="w-full overflow-hidden border-t-2 border-black bg-black text-white py-3 relative z-20 flex group" style="--gap: 2rem;">
+          <div class="animate-marquee whitespace-nowrap font-mono text-xs md:text-sm uppercase tracking-widest flex items-center shrink-0 pr-[var(--gap)] group-hover:text-black/50 transition-colors">
+            <span class="mx-4">+++</span>
+            <span>Web Design</span>
+            <span class="mx-4">+++</span>
+            <span>Development</span>
+            <span class="mx-4">+++</span>
+            <span>Personal Vision</span>
+            <span class="mx-4">+++</span>
+            <span>Honest Labor</span>
+            <span class="mx-4">+++</span>
+            <span>No Bloat</span>
+            <span class="mx-4">+++</span>
+            <span>Built in NY</span>
+          </div>
+          <!-- Duplicate for seamless scrolling -->
+          <div class="animate-marquee whitespace-nowrap font-mono text-xs md:text-sm uppercase tracking-widest flex items-center shrink-0 pr-[var(--gap)] group-hover:text-black/50 transition-colors" aria-hidden="true">
+            <span class="mx-4">+++</span>
+            <span>Web Design</span>
+            <span class="mx-4">+++</span>
+            <span>Development</span>
+            <span class="mx-4">+++</span>
+            <span>Personal Vision</span>
+            <span class="mx-4">+++</span>
+            <span>Honest Labor</span>
+            <span class="mx-4">+++</span>
+            <span>No Bloat</span>
+            <span class="mx-4">+++</span>
+            <span>Built in NY</span>
+          </div>
+          <!-- Triple redundancy for arbitrary widths -->
+          <div class="animate-marquee whitespace-nowrap font-mono text-xs md:text-sm uppercase tracking-widest flex items-center shrink-0 pr-[var(--gap)] group-hover:text-black/50 transition-colors" aria-hidden="true">
+            <span class="mx-4">+++</span>
+            <span>Web Design</span>
+            <span class="mx-4">+++</span>
+            <span>Development</span>
+            <span class="mx-4">+++</span>
+            <span>Personal Vision</span>
+            <span class="mx-4">+++</span>
+            <span>Honest Labor</span>
+            <span class="mx-4">+++</span>
+            <span>No Bloat</span>
+            <span class="mx-4">+++</span>
+            <span>Built in NY</span>
+          </div>
+        </div>
+
+      </section>
+
     </div>
-  </section>
+  </div>
 
   <script>
     // Force page to always load at the top to preserve the hero animation experience
@@ -91,73 +166,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         document.body.style.overflow = '';
       }, 1500);
     }
+
+    // Scroll sequence opacity logic
+    requestAnimationFrame(() => {
+        const sequence = document.getElementById('scroll-sequence');
+        const heroLayer = document.getElementById('hero-layer');
+
+        if (sequence && heroLayer) {
+            window.addEventListener('scroll', () => {
+              const rect = sequence.getBoundingClientRect();
+              const windowHeight = window.innerHeight;
+              
+              if (rect.top <= 0 && rect.top >= -windowHeight) {
+                // Calculate progress through the sticky sequence (0 to 1)
+                let progress = Math.abs(rect.top) / windowHeight;
+                
+                // Map progress to opacity. E.g., hero fully fades out by scroll
+                let opacity = 1 - (progress * 1.5);
+                if (opacity < 0) opacity = 0;
+                
+                heroLayer.style.opacity = opacity.toString();
+                
+                // Disable pointer events on hero when faded so Reality is clickable
+                if (opacity < 0.1) {
+                    heroLayer.style.pointerEvents = 'none';
+                } else {
+                    heroLayer.style.pointerEvents = 'auto';
+                }
+              } else if (rect.top > 0) {
+                heroLayer.style.opacity = '1';
+                heroLayer.style.pointerEvents = 'auto';
+              } else {
+                heroLayer.style.opacity = '0';
+                heroLayer.style.pointerEvents = 'none';
+              }
+            }, { passive: true });
+        }
+    });
   </script>
-
-  <!-- Marquee Anchor -->
-  <div class="w-full overflow-hidden border-b-2 border-black bg-black text-white py-3 relative z-20 flex group" style="--gap: 2rem;">
-    <div class="animate-marquee whitespace-nowrap font-mono text-xs md:text-sm uppercase tracking-widest flex items-center shrink-0 pr-[var(--gap)] group-hover:text-black/50 transition-colors">
-      <span class="mx-4">+++</span>
-      <span>Web Design</span>
-      <span class="mx-4">+++</span>
-      <span>Development</span>
-      <span class="mx-4">+++</span>
-      <span>Personal Vision</span>
-      <span class="mx-4">+++</span>
-      <span>Honest Labor</span>
-      <span class="mx-4">+++</span>
-      <span>No Bloat</span>
-      <span class="mx-4">+++</span>
-      <span>Built in NY</span>
-    </div>
-    <!-- Duplicate for seamless scrolling -->
-    <div class="animate-marquee whitespace-nowrap font-mono text-xs md:text-sm uppercase tracking-widest flex items-center shrink-0 pr-[var(--gap)] group-hover:text-black/50 transition-colors" aria-hidden="true">
-      <span class="mx-4">+++</span>
-      <span>Web Design</span>
-      <span class="mx-4">+++</span>
-      <span>Development</span>
-      <span class="mx-4">+++</span>
-      <span>Personal Vision</span>
-      <span class="mx-4">+++</span>
-      <span>Honest Labor</span>
-      <span class="mx-4">+++</span>
-      <span>No Bloat</span>
-      <span class="mx-4">+++</span>
-      <span>Built in NY</span>
-    </div>
-    <!-- Triple redundancy for arbitrary widths -->
-    <div class="animate-marquee whitespace-nowrap font-mono text-xs md:text-sm uppercase tracking-widest flex items-center shrink-0 pr-[var(--gap)] group-hover:text-black/50 transition-colors" aria-hidden="true">
-      <span class="mx-4">+++</span>
-      <span>Web Design</span>
-      <span class="mx-4">+++</span>
-      <span>Development</span>
-      <span class="mx-4">+++</span>
-      <span>Personal Vision</span>
-      <span class="mx-4">+++</span>
-      <span>Honest Labor</span>
-      <span class="mx-4">+++</span>
-      <span>No Bloat</span>
-      <span class="mx-4">+++</span>
-      <span>Built in NY</span>
-    </div>
-  </div>
-
-  <section id="stats" class="py-24 md:py-40 px-4 md:px-8 border-b-2 border-black bg-black text-white">
-    <div class="max-w-6xl mx-auto flex flex-col items-center text-center gap-12">
-      <div class="font-mono text-xs uppercase tracking-widest flex items-center justify-center gap-2 text-white/50">
-          <span class="inline-block w-4 h-4 bg-white rounded-full"></span>
-          (The Reality)
-          <span class="inline-block w-4 h-4 bg-white rounded-full"></span>
-      </div>
-
-      <div class="max-w-5xl flex flex-col gap-8 group">
-        <h3 class="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-display uppercase tracking-tighter leading-[1.05] transition-all duration-300 group-hover:italic text-white">
-          "84% of consumers say a business is more credible if it has a website."
-        </h3>
-        <p class="font-mono text-sm md:text-lg mt-4 text-white/50 uppercase tracking-widest font-semibold">— Verisign</p>
-      </div>
-
-    </div>
-  </section>
 
   <section id="about" class="py-16 md:py-24 px-4 md:px-8 border-b-2 border-black bg-white">
     <div class="max-w-6xl mx-auto flex flex-col gap-16">
