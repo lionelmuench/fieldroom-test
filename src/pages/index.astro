@@ -141,6 +141,81 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </div>
 
+  <section id="work" class="py-16 md:py-24 px-4 md:px-8 border-b-2 border-black bg-white">
+    <div class="max-w-6xl mx-auto flex flex-col gap-16">
+      
+      <div class="flex flex-col md:flex-row justify-between items-end border-b-2 border-black pb-8">
+        <h2 class="text-4xl md:text-6xl font-display font-medium tracking-tighter uppercase">(Selected Works)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Project 1 -->
+        <div class="border-2 border-black group overflow-hidden bg-black text-white flex flex-col">
+          <div class="aspect-[4/3] w-full bg-[#f4f4f4] border-b-2 border-black p-8 flex flex-col justify-center items-center text-center relative overflow-hidden transition-all duration-500">
+            <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
+            <h4 class="font-display text-4xl text-black mb-2 uppercase tracking-tighter relative z-20 transition-transform duration-500 group-hover:scale-110">Continental Tile</h4>
+            <div class="font-mono text-black/50 text-xs uppercase tracking-widest relative z-20 mt-4">( Local Business )</div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-2xl font-display uppercase tracking-tight mb-2 group-hover:italic transition-all duration-300">Continental Tile</h3>
+            <div class="font-mono text-xs opacity-70 flex flex-wrap gap-4 mt-6 border-t border-white/20 pt-4">
+                <span>[ Web Design ]</span>
+                <span>[ Development ]</span>
+                <span>[ Copywriting ]</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="border-2 border-black group overflow-hidden bg-black text-white flex flex-col">
+          <div class="aspect-[4/3] w-full bg-[#f4f4f4] border-b-2 border-black p-8 flex flex-col justify-center items-center text-center relative overflow-hidden transition-all duration-500">
+            <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
+            <h4 class="font-display text-4xl text-black mb-2 uppercase tracking-tighter relative z-20 transition-transform duration-500 group-hover:scale-110">D C Crane</h4>
+            <div class="font-mono text-black/50 text-xs uppercase tracking-widest relative z-20 mt-4">( Corporate Redesign )</div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl md:text-2xl font-display uppercase tracking-tight mb-2 group-hover:italic transition-all duration-300">D C Crane</h3>
+            <div class="font-mono text-xs opacity-70 flex flex-wrap gap-4 mt-6 border-t border-white/20 pt-4">
+                <span>[ Complete Redesign ]</span>
+                <span>[ Architecture ]</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="stats" class="py-16 md:py-24 px-4 md:px-8 border-b-2 border-black bg-[#f4f4f4]">
+    <div class="max-w-6xl mx-auto flex flex-col gap-16">
+      <div class="font-mono text-xs uppercase tracking-widest flex items-center gap-2">
+          <span class="inline-block w-4 h-4 bg-black rounded-full"></span>
+          (The Reality)
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+        
+        <div class="flex flex-col gap-6 group">
+          <h3 class="text-3xl md:text-5xl font-display uppercase tracking-tight leading-tight group-hover:italic transition-all duration-300 border-l-4 border-black pl-6">
+            "84% of consumers say a business is more credible if it has a website."
+          </h3>
+          <p class="font-mono text-sm opacity-70 uppercase tracking-widest font-semibold pl-6">— Verisign</p>
+        </div>
+
+        <div class="flex flex-col gap-6 group">
+          <h3 class="text-2xl md:text-4xl font-display uppercase tracking-tight leading-tight group-hover:italic transition-all duration-300 border-l-4 border-black pl-6">
+            <span class="bg-black text-white px-2 py-1 inline-block mb-3 leading-none">84% of small businesses</span><br />
+            using multiple tech platforms saw increased profits.
+          </h3>
+          <p class="font-mono text-sm opacity-70 uppercase tracking-widest font-semibold pl-6">— US Chamber of Commerce</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <section id="about" class="py-16 md:py-24 px-4 md:px-8 border-b-2 border-black bg-white">
     <div class="max-w-6xl mx-auto flex flex-col gap-16">
       
@@ -189,11 +264,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="border-2 border-white/20 p-8 hover:border-white transition-colors duration-300 flex flex-col h-full group">
             <div class="text-xs opacity-50 mb-8 flex justify-between">
                 <span>01</span>
-                <span>[ Architecture ]</span>
+                <span>[ Build ]</span>
             </div>
-            <h3 class="text-2xl font-display uppercase tracking-tight mb-4 group-hover:italic">Bespoke Sites</h3>
+            <h3 class="text-2xl font-display uppercase tracking-tight mb-4 group-hover:italic">Web Design & Dev</h3>
             <p class="opacity-70 flex-grow">
-                Fast, responsive, and completely custom websites built from the ground up for total performance.
+                Fast, responsive, and completely custom websites built from scratch. No bloat, no templates, total performance.
             </p>
             <div class="h-1 w-0 bg-white group-hover:w-full transition-all duration-500 mt-8"></div>
         </div>
@@ -202,11 +277,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="border-2 border-white/20 p-8 hover:border-white transition-colors duration-300 flex flex-col h-full group">
             <div class="text-xs opacity-50 mb-8 flex justify-between">
                 <span>02</span>
-                <span>[ Evolution ]</span>
+                <span>[ Optimize ]</span>
             </div>
-            <h3 class="text-2xl font-display uppercase tracking-tight mb-4 group-hover:italic">Redesigns</h3>
+            <h3 class="text-2xl font-display uppercase tracking-tight mb-4 group-hover:italic">Redesigns & SEO</h3>
             <p class="opacity-70 flex-grow">
-                Modernizing outdated digital presences while keeping what works and improving what doesn't.
+                Modernizing outdated digital presences to improve technical performance, search rankings, and user experience.
             </p>
             <div class="h-1 w-0 bg-white group-hover:w-full transition-all duration-500 mt-8"></div>
         </div>
@@ -215,11 +290,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="border-2 border-white/20 p-8 hover:border-white transition-colors duration-300 flex flex-col h-full group">
             <div class="text-xs opacity-50 mb-8 flex justify-between">
                 <span>03</span>
-                <span>[ Fidelity ]</span>
+                <span>[ Manage ]</span>
             </div>
-            <h3 class="text-2xl font-display uppercase tracking-tight mb-4 group-hover:italic">Personal Vision</h3>
+            <h3 class="text-2xl font-display uppercase tracking-tight mb-4 group-hover:italic">Ongoing Support</h3>
             <p class="opacity-70 flex-grow">
-                We work closely with you throughout the process, making sure the final site reflects your vision completely.
+                We handle the hosting, updates, and maintenance so you have a seamless digital presence without the headache.
             </p>
             <div class="h-1 w-0 bg-white group-hover:w-full transition-all duration-500 mt-8"></div>
         </div>
@@ -229,20 +304,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <section id="contact" class="py-24 px-4 md:px-8 border-t-2 border-black flex items-center justify-center text-center bg-[#f4f4f4]">
-    <div class="border-2 border-black p-12 md:p-24 relative overflow-hidden group w-full max-w-4xl bg-white">
+    <div class="border-2 border-black p-12 md:p-24 relative overflow-hidden group w-full max-w-4xl bg-white flex flex-col items-center">
       <div class="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-in-out"></div>
       
-      <h2 class="text-4xl md:text-7xl font-display font-medium uppercase tracking-tighter relative z-10 group-hover:text-white transition-colors duration-500 delay-100">
-        <a href="mailto:createwithinsite@gmail.com" class="hover:italic inline-block">Execute your vision.</a>
+      <h2 class="text-4xl md:text-6xl lg:text-7xl font-display font-medium uppercase tracking-tighter relative z-10 group-hover:text-white transition-colors duration-500 delay-100">
+        <a href="mailto:createwithinsite@gmail.com" class="hover:italic inline-block">Start a project.</a>
       </h2>
       
-      <div class="mt-8 flex justify-center gap-4 relative z-10 group-hover:text-white transition-colors duration-500 delay-200">
-          <a href="mailto:createwithinsite@gmail.com" class="font-mono text-sm tracking-widest border-b border-black group-hover:border-white pb-1">createwithinsite@gmail.com</a>
+      <p class="font-mono text-sm md:text-base text-black/60 mt-6 relative z-10 group-hover:text-white/80 transition-colors duration-500 delay-150 max-w-md">
+        Reach out to discuss your timelines, goals, and how we can add measurable value to your business.
+      </p>
+
+      <div class="mt-12 flex justify-center gap-4 relative z-10 group-hover:text-white transition-colors duration-500 delay-200">
+          <a href="mailto:createwithinsite@gmail.com" class="font-mono text-sm tracking-widest border-2 border-black group-hover:border-white group-hover:bg-white group-hover:text-black py-3 px-6 hover:bg-black hover:text-white transition-colors">createwithinsite@gmail.com</a>
       </div>
     </div>
   </section>
 
 </BaseLayout>
+
 
 <style>
 /* Add the marquee animation to the scoped styles so it works correctly */
