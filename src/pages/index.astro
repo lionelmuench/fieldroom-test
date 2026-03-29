@@ -4,12 +4,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="INSITE | Web Design">
   
+  <!-- Initial White Overlay (Fades out after 1.5s, raised to top to cover header) -->
+  <div id="initial-overlay" class="fixed inset-0 w-screen h-screen bg-white z-[100] opacity-100 transition-opacity duration-[1500ms] pointer-events-none"></div>
+
   <!-- The Scroll Sequence Wrapper -->
-  <div id="scroll-sequence" class="relative h-[200vh] bg-black">
+  <div id="scroll-sequence" class="relative h-[300vh] bg-black">
     <div class="sticky top-0 h-screen w-full overflow-hidden border-b-2 border-black">
       
       <!-- THE REALITY SECTION (Background Layer) -->
-      <section id="stats" class="absolute inset-0 w-full h-full flex flex-col items-center justify-center px-4 md:px-8 bg-black text-white pointer-events-auto">
+      <section id="stats" class="absolute inset-0 w-full h-full flex flex-col items-center justify-center px-4 md:px-8 bg-black text-white pointer-events-none opacity-0 will-change-[opacity]">
         <div class="max-w-6xl mx-auto flex flex-col items-center text-center gap-12">
           <div class="font-mono text-xs uppercase tracking-widest flex items-center justify-center gap-2 text-white/50">
               <span class="inline-block w-4 h-4 bg-white rounded-full"></span>
@@ -26,12 +29,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </section>
 
       <!-- THE HERO SECTION (Foreground Layer, fades out) -->
-      <section id="hero-layer" class="absolute inset-0 w-full h-full flex flex-col items-center justify-end overflow-hidden bg-white origin-top will-change-[opacity]">
+      <section id="hero-layer" class="absolute inset-0 w-full h-full flex flex-col items-center justify-center overflow-hidden bg-white origin-top will-change-[opacity]">
         
-        <div class="flex-grow flex flex-col items-center justify-center w-full relative pt-20">
-          <!-- Initial White Overlay (Fades out after 1.5s) -->
-          <div id="initial-overlay" class="fixed inset-0 w-screen h-screen bg-white z-[50] opacity-100 transition-opacity duration-[1500ms] pointer-events-none"></div>
-
+        <div class="flex flex-col items-center justify-center w-full relative pt-20">
           <!-- Massive Logo Centered -->
           <div id="hero-logo-wrapper" class="w-full flex items-center justify-center relative z-[60] mb-8 md:mb-12 h-[26vw] sm:h-[22vw] md:h-[18rem] pointer-events-none">
             <h1 id="hero-logo" class="text-[26vw] sm:text-[22vw] md:text-[16rem] leading-none tracking-tighter text-black select-none pointer-events-auto origin-center">
@@ -57,62 +57,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </p>
         </div>
         
-        <!-- Bottom Scroll down indicator (shifted up above marquee) -->
-        <div class="relative z-20 opacity-40 hover:opacity-100 transition-opacity duration-300 flex flex-col items-center gap-3 mb-10 md:mb-14">
+        <!-- Bottom Scroll down indicator -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 opacity-40 hover:opacity-100 transition-opacity duration-300 flex flex-col items-center gap-3">
             <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-black">Scroll</span>
             <svg width="12" height="24" viewBox="0 0 12 24" fill="none">
                 <path d="M6 0v23m0 0l-5-5m5 5l5-5" stroke="black" stroke-width="1.5"/>
             </svg>
         </div>
-
-        <!-- Marquee Anchor Moved into Hero Bottom -->
-        <div class="w-full overflow-hidden border-t-2 border-black bg-black text-white py-3 relative z-20 flex group" style="--gap: 2rem;">
-          <div class="animate-marquee whitespace-nowrap font-mono text-xs md:text-sm uppercase tracking-widest flex items-center shrink-0 pr-[var(--gap)] group-hover:text-black/50 transition-colors">
-            <span class="mx-4">+++</span>
-            <span>Web Design</span>
-            <span class="mx-4">+++</span>
-            <span>Development</span>
-            <span class="mx-4">+++</span>
-            <span>Personal Vision</span>
-            <span class="mx-4">+++</span>
-            <span>Honest Labor</span>
-            <span class="mx-4">+++</span>
-            <span>No Bloat</span>
-            <span class="mx-4">+++</span>
-            <span>Built in NY</span>
-          </div>
-          <!-- Duplicate for seamless scrolling -->
-          <div class="animate-marquee whitespace-nowrap font-mono text-xs md:text-sm uppercase tracking-widest flex items-center shrink-0 pr-[var(--gap)] group-hover:text-black/50 transition-colors" aria-hidden="true">
-            <span class="mx-4">+++</span>
-            <span>Web Design</span>
-            <span class="mx-4">+++</span>
-            <span>Development</span>
-            <span class="mx-4">+++</span>
-            <span>Personal Vision</span>
-            <span class="mx-4">+++</span>
-            <span>Honest Labor</span>
-            <span class="mx-4">+++</span>
-            <span>No Bloat</span>
-            <span class="mx-4">+++</span>
-            <span>Built in NY</span>
-          </div>
-          <!-- Triple redundancy for arbitrary widths -->
-          <div class="animate-marquee whitespace-nowrap font-mono text-xs md:text-sm uppercase tracking-widest flex items-center shrink-0 pr-[var(--gap)] group-hover:text-black/50 transition-colors" aria-hidden="true">
-            <span class="mx-4">+++</span>
-            <span>Web Design</span>
-            <span class="mx-4">+++</span>
-            <span>Development</span>
-            <span class="mx-4">+++</span>
-            <span>Personal Vision</span>
-            <span class="mx-4">+++</span>
-            <span>Honest Labor</span>
-            <span class="mx-4">+++</span>
-            <span>No Bloat</span>
-            <span class="mx-4">+++</span>
-            <span>Built in NY</span>
-          </div>
-        </div>
-
       </section>
 
     </div>
@@ -171,34 +122,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     requestAnimationFrame(() => {
         const sequence = document.getElementById('scroll-sequence');
         const heroLayer = document.getElementById('hero-layer');
+        const statsLayer = document.getElementById('stats');
 
-        if (sequence && heroLayer) {
+        if (sequence && heroLayer && statsLayer) {
             window.addEventListener('scroll', () => {
               const rect = sequence.getBoundingClientRect();
               const windowHeight = window.innerHeight;
               
-              if (rect.top <= 0 && rect.top >= -windowHeight) {
-                // Calculate progress through the sticky sequence (0 to 1)
+              if (rect.top <= 0 && rect.top >= -(windowHeight * 2)) {
+                // Calculate progress through the 300vh sticky sequence (0 to 2)
                 let progress = Math.abs(rect.top) / windowHeight;
                 
-                // Map progress to opacity. E.g., hero fully fades out by scroll
-                let opacity = 1 - (progress * 1.5);
-                if (opacity < 0) opacity = 0;
+                // 1. Fade out hero from 0 to 0.8
+                let heroOpacity = 1 - (progress / 0.8);
+                if (heroOpacity < 0) heroOpacity = 0;
                 
-                heroLayer.style.opacity = opacity.toString();
+                // 2. Pure black pause from 0.8 to 1.2
+                // 3. Fade in stats from 1.2 to 2.0
+                let statsOpacity = (progress - 1.2) / 0.8;
+                if (statsOpacity < 0) statsOpacity = 0;
+                if (statsOpacity > 1) statsOpacity = 1;
+
+                heroLayer.style.opacity = heroOpacity.toString();
+                statsLayer.style.opacity = statsOpacity.toString();
                 
                 // Disable pointer events on hero when faded so Reality is clickable
-                if (opacity < 0.1) {
+                if (heroOpacity < 0.1) {
                     heroLayer.style.pointerEvents = 'none';
+                    statsLayer.style.pointerEvents = 'auto';
                 } else {
                     heroLayer.style.pointerEvents = 'auto';
+                    statsLayer.style.pointerEvents = 'none';
                 }
               } else if (rect.top > 0) {
                 heroLayer.style.opacity = '1';
                 heroLayer.style.pointerEvents = 'auto';
+                statsLayer.style.opacity = '0';
+                statsLayer.style.pointerEvents = 'none';
               } else {
                 heroLayer.style.opacity = '0';
                 heroLayer.style.pointerEvents = 'none';
+                statsLayer.style.opacity = '1';
+                statsLayer.style.pointerEvents = 'auto';
               }
             }, { passive: true });
         }
@@ -361,13 +326,5 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
 <style>
-/* Add the marquee animation to the scoped styles so it works correctly */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-100% - var(--gap))); }
-}
-
-.animate-marquee {
-  animation: marquee 20s linear infinite;
-}
+/* Scoped styles */
 </style>
