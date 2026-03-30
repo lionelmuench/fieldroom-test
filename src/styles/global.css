@@ -33,6 +33,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-bg-base text-text-base font-mono antialiased selection:bg-black selection:text-white;
     position: relative;
@@ -46,6 +50,12 @@
   h5,
   h6 {
     @apply font-display tracking-tight;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
