@@ -8,7 +8,7 @@ interface Props {
 	description?: string;
 }
 
-const { title = "Insite Web Design", description = "Custom web design and development by Drew and Lionel in Hastings-on-Hudson." } = Astro.props;
+const { title = "insite web design", description = "Custom web design and development by Drew and Lionel in Hastings-on-Hudson." } = Astro.props;
 const siteUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
 const isProd = import.meta.env.PROD;
 const gaId = import.meta.env.PUBLIC_GA_ID;

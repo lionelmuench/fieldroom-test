@@ -4,6 +4,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://insiteweb.design',
   adapter: cloudflare(),
   vite: {
     plugins: [tailwindcss()],
