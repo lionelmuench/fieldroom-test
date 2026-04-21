@@ -8,7 +8,7 @@ interface Props {
 	description?: string;
 }
 
-const { title, description = "INSITE - Custom web design and development by Drew and Lionel in Hastings-on-Hudson." } = Astro.props;
+const { title = "Insite Web Design", description = "Custom web design and development by Drew and Lionel in Hastings-on-Hudson." } = Astro.props;
 const siteUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
 const isProd = import.meta.env.PROD;
 const gaId = import.meta.env.PUBLIC_GA_ID;
@@ -24,8 +24,13 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 
-        <!-- SEO -->
+        <!-- SEO & Open Graph -->
         <link rel="canonical" href={siteUrl} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL('/preview.png', siteUrl).href} />
+        <meta property="og:url" content={siteUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
         
         <!-- Preload Fonts (if needed) -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
