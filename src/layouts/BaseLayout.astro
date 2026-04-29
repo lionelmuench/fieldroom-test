@@ -40,6 +40,21 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
             <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
         </noscript>
 
+        <!-- Schema.org JSON-LD -->
+        <script type="application/ld+json" set:html={JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": title,
+            "url": siteUrl,
+            "logo": new URL('/favicon.svg', siteUrl).href,
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "914-690-4902",
+                "email": "createwithinsite@gmail.com",
+                "contactType": "sales"
+            }
+        })} />
+
         <!-- Google Analytics -->
         {isProd && gaId && (
             <script type="text/partytown" async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
