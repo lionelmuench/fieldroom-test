@@ -32,13 +32,9 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
         <meta property="og:url" content={siteUrl} />
         <meta name="twitter:card" content="summary_large_image" />
         
-        <!-- Preload Fonts (if needed) -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Helvetica+Neue:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript>
-            <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
-        </noscript>
+        <!-- Preload critical fonts -->
+        <link rel="preload" href="/fonts/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/fonts/space-mono-400.woff2" as="font" type="font/woff2" crossorigin>
 
         <!-- Schema.org JSON-LD -->
         <script type="application/ld+json" set:html={JSON.stringify({
@@ -50,7 +46,7 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
             "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "914-690-4902",
-                "email": "createwithinsite@gmail.com",
+                "email": ["createwithinsite", "gmail.com"].join("@"),
                 "contactType": "sales"
             }
         })} />

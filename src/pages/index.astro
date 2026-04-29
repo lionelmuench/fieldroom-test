@@ -393,9 +393,33 @@ import scrollitImg from '../assets/images/scrollit.png';
       </h2>
       
       <div class="mt-8 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 relative z-10 group-hover:text-white transition-colors duration-500 delay-200">
-          <a href="mailto:createwithinsite@gmail.com" class="font-mono text-sm tracking-widest border-b border-black group-hover:border-white pb-1">createwithinsite@gmail.com</a>
+          <a href="#" data-user="createwithinsite" data-domain="gmail.com" class="email-link font-mono text-sm tracking-widest border-b border-black group-hover:border-white pb-1">createwithinsite [at] gmail.com</a>
           <a href="tel:9146904902" class="font-mono text-sm tracking-widest border-b border-black group-hover:border-white pb-1">914-690-4902</a>
       </div>
+
+      <script>
+        // Email obfuscation to prevent Cloudflare email-decode.min.js injection
+        document.querySelectorAll('.email-link').forEach(link => {
+          link.addEventListener('mouseenter', () => {
+            const user = link.getAttribute('data-user');
+            const domain = link.getAttribute('data-domain');
+            if (user && domain) {
+              link.setAttribute('href', `mailto:${user}@${domain}`);
+              link.textContent = `${user}@${domain}`;
+            }
+          }, { once: true });
+
+          link.addEventListener('click', (e) => {
+            const user = link.getAttribute('data-user');
+            const domain = link.getAttribute('data-domain');
+            if (user && domain && link.getAttribute('href') === '#') {
+              e.preventDefault();
+              window.location.href = `mailto:${user}@${domain}`;
+              link.textContent = `${user}@${domain}`;
+            }
+          });
+        });
+      </script>
     </div>
   </section>
 
